@@ -1,17 +1,86 @@
-<!DOCTYPE html>
-<html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+<!doctype html>
+<html lang="en">
+<head>
+
+<!-- Basic Page Needs
+================================================== -->
+<title>MDC Marketplace</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- CSS
+================================================== -->
+<link rel="icon" href="./favicon.png" sizes="192x192" />
+
+</head>
+<body>
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+<div id=app></div>
+
+</div>
+<!-- Wrapper / End -->
+
+
+<!-- Scripts
+================================================== -->
+<script type="application/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.1.0/jquery-migrate.min.js"></script>
+
+<!-- <script type="application/javascript" src="../src/assets/js/mmenu.min.js"></script>
+<script type="application/javascript" src="../src/assets/js/tippy.all.min.js"></script>
+<script type="application/javascript" src="../src/assets/js/simplebar.min.js"></script>
+<script type="application/javascript" src="../src/assets/js/bootstrap-slider.min.js"></script>
+<script type="application/javascript" src="../src/assets/js/bootstrap-select.min.js"></script>
+<script type="application/javascript" src="../src/assets/js/snackbar.js"></script>
+<script type="application/javascript" src="../src/assets/js/clipboard.min.js"></script>
+<script type="application/javascript" src="../src/assets/js/counterup.min.js"></script>
+<script type="application/javascript" src="../src/assets/js/magnific-popup.min.js"></script>
+<script type="application/javascript" src="../src/assets/js/slick.min.js"></script>
+<script type="application/javascript" src="../src/assets/js/custom.js"></script> -->
+
+<!-- Snackbar // documentation: https://www.polonel.com/snackbar/ -->
+<script>
+// Snackbar for user status switcher
+$('#snackbar-user-status label').click(function() { 
+	Snackbar.show({
+		text: 'Your status has been changed!',
+		pos: 'bottom-center',
+		showAction: false,
+		actionText: "Dismiss",
+		duration: 3000,
+		textColor: '#fff',
+		backgroundColor: '#383838'
+	}); 
+}); 
+</script>
+
+
+<!-- Google Autocomplete -->
+<script>
+	function initAutocomplete() {
+		 var options = {
+		  types: ['(cities)'],
+		  // componentRestrictions: {country: "us"}
+		 };
+
+		 var input = document.getElementById('autocomplete-input');
+		 var autocomplete = new google.maps.places.Autocomplete(input, options);
+	}
+
+	// Autocomplete adjustment for homepage
+	if ($('.intro-banner-search-form')[0]) {
+	    setTimeout(function(){ 
+	        $(".pac-container").prependTo(".intro-search-field.with-autocomplete");
+	    }, 300);
+	}
+
+</script>
+
+<!-- Google API -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaoOT9ioUE4SA8h-anaFyU4K63a7H-7bc&libraries=places&callback=initAutocomplete"></script>
+
+</body>
 </html>
